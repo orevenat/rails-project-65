@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bulletin_one:
+  title: "Новый ноутбук"
+  description: "Мощный игровой ноутбук в отличном состоянии"
+  category: electronics
+  user: one
+
+bulletin_two:
+  title: "Классическая литература"
+  description: "Собрание сочинений русских классиков"
+  category: books
+  user: one
+
+bulletin_three:
+  title: "Диван угловой"
+  description: "Комфортный диван с механизмом трансформации"
+  category: furniture
+  user: two

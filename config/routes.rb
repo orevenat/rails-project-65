@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   scope module: :web do
-    root to: "home#index"
-
     get "auth/:provider/callback", to: "auth#callback", as: :callback_auth
     post "auth/:provider", to: "auth#request", as: :auth_request
     delete "auth/logout"
+
+    root "bulletins#index"
+
+    resources :bulletins, only: %i[index show new create]
   end
 end

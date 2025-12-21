@@ -1,0 +1,11 @@
+---
+ru:
+  activerecord:
+    models:
+      bulletin: Объявление
+    attributes:
+      bulletin:
+        title: Заголовок
+        description: Описание
+        category: Категория
+        image: Фотография

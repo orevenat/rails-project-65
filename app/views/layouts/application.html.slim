@@ -32,6 +32,11 @@ html
             ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
               li.nav-item.me-2
                 = link_to t('.root'), root_path, class: "nav-link text-dark"
+
+              - if signed_in?
+                li.nav-item.me-2
+                  = link_to new_bulletin_path, class: 'nav-link text-dark' do
+                    = t('.add_bulletin')
         ul.nav.nav-pills
           - if signed_in?
             li.nav-item.me-2

@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module Web::HomeHelper
+module Web::BulletinsHelper
 end

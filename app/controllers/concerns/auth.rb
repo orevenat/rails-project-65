@@ -16,4 +16,10 @@ module Auth
 
     @current_user = User.find_by(id: session[:user_id])
   end
+
+  def check_auth!
+    return if current_user
+
+    redirect_back fallback_location: root_path, alert: t('layouts.check_auth_failed')
+  end
 end
