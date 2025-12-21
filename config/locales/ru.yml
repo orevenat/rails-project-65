@@ -1,0 +1,6 @@
+---
+ru:
+  layouts:
+    application:
+      main_name: Доска объявлений
+      root: Главная

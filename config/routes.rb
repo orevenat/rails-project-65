@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   scope module: :web do
-    post 'auth/:provider', to: 'auth#request', as: :auth_request
-    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+    root to: "home#index"
+
+    get "auth/:provider/callback", to: "auth#callback", as: :callback_auth
+    post "auth/:provider", to: "auth#request", as: :auth_request
   end
 end

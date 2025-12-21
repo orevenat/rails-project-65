@@ -118,16 +118,20 @@ GEM
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
+    faker (3.5.3)
+      i18n (>= 1.8.11, < 2)
     faraday (2.14.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
+    ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
     ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
@@ -193,6 +197,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.26.2)
     minitest-power_assert (0.3.1)
       minitest
@@ -217,6 +222,9 @@ GEM
       net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.5)
+    nokogiri (1.18.10)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.18.10-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.10-aarch64-linux-musl)
@@ -224,6 +232,8 @@ GEM
     nokogiri (1.18.10-arm-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.10-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.10-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-darwin)
       racc (~> 1.4)
@@ -262,6 +272,7 @@ GEM
     pg (1.6.2)
     pg (1.6.2-aarch64-linux)
     pg (1.6.2-aarch64-linux-musl)
+    pg (1.6.2-arm64-darwin)
     pg (1.6.2-x86_64-darwin)
     pg (1.6.2-x86_64-linux)
     pg (1.6.2-x86_64-linux-musl)
@@ -387,6 +398,10 @@ GEM
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
+    slim-rails (4.0.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 6.0, != 5.0.0)
     slim_lint (0.33.0)
       rexml (~> 3.2)
       rubocop (>= 1.0, < 2.0)
@@ -431,10 +446,13 @@ GEM
       fugit (~> 1.11)
       railties (>= 7.1)
       thor (>= 1.3.1)
+    sqlite3 (2.8.1)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (2.8.1-aarch64-linux-gnu)
     sqlite3 (2.8.1-aarch64-linux-musl)
     sqlite3 (2.8.1-arm-linux-gnu)
     sqlite3 (2.8.1-arm-linux-musl)
+    sqlite3 (2.8.1-arm64-darwin)
     sqlite3 (2.8.1-x86_64-darwin)
     sqlite3 (2.8.1-x86_64-linux-gnu)
     sqlite3 (2.8.1-x86_64-linux-musl)
@@ -452,6 +470,7 @@ GEM
     thor (1.4.0)
     thruster (0.1.16)
     thruster (0.1.16-aarch64-linux)
+    thruster (0.1.16-arm64-darwin)
     thruster (0.1.16-x86_64-darwin)
     thruster (0.1.16-x86_64-linux)
     tilt (2.6.1)
@@ -493,6 +512,8 @@ PLATFORMS
   aarch64-linux-musl
   arm-linux-gnu
   arm-linux-musl
+  arm64-darwin-22
+  ruby
   x86_64-darwin-22
   x86_64-linux
   x86_64-linux-gnu
@@ -505,6 +526,8 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv
+  faker
   html2slim
   i18n-debug
   image_processing (~> 1.2)
@@ -524,6 +547,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   ruby-lsp-rails
   selenium-webdriver
+  slim-rails
   slim_lint
   solargraph
   solid_cable

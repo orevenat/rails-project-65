@@ -40,11 +40,12 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
-gem 'omniauth-github'
-gem 'omniauth-rails_csrf_protection'
+gem "slim-rails"
+gem "omniauth-github"
+gem "omniauth-rails_csrf_protection"
 
 group :production do
-  gem 'pg'
+  gem "pg"
 end
 
 group :development, :test do
@@ -57,27 +58,30 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
+  gem "dotenv"
+  gem "faker"
+
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rails-omakase', require: false
-  gem 'slim_lint'
-  gem 'solargraph'
-  gem 'sqlite3'
+  gem "rubocop"
+  gem "rubocop-performance"
+  gem "rubocop-rails"
+  gem "rubocop-rails-omakase", require: false
+  gem "slim_lint"
+  gem "solargraph"
+  gem "sqlite3"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'html2slim'
-  gem 'i18n-debug'
-  gem 'ruby-lsp-rails'
+  gem "html2slim"
+  gem "i18n-debug"
+  gem "ruby-lsp-rails"
   gem "web-console"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem 'minitest-power_assert'
+  gem "minitest-power_assert"
   gem "selenium-webdriver"
 end
