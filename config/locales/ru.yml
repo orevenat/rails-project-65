@@ -4,3 +4,5 @@ ru:
     application:
       main_name: Доска объявлений
       root: Главная
+      login: Войти
+      sign_out: Выйти

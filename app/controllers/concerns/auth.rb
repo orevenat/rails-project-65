@@ -7,6 +7,10 @@ module Auth
     session[:user_id].present? && current_user.present?
   end
 
+  def sign_out
+    reset_session
+  end
+
   def current_user
     return @current_user if defined?(@current_user)
 

@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
     get "auth/:provider/callback", to: "auth#callback", as: :callback_auth
     post "auth/:provider", to: "auth#request", as: :auth_request
+    delete "auth/logout"
   end
 end

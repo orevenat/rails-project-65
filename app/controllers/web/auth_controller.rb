@@ -15,4 +15,10 @@ class Web::AuthController < Web::ApplicationController
       redirect_to root_path, notice: t(".success")
     end
   end
+
+  def logout
+    sign_out
+
+    redirect_to root_path, notice: t(".success")
+  end
 end
