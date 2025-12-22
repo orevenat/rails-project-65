@@ -1,0 +1,16 @@
+- content_for :title do
+  = t('.title')
+
+.row.mt-2
+  table.table.table-borderless
+    thead
+      tr
+        th = t('.name')
+        th = t('.created_at')
+        th = t('.actions')
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = link_to bulletin.title, bulletin_path(bulletin)
+          td = distance_of_time_in_words_to_now  bulletin.created_at
+          td

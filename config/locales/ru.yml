@@ -7,12 +7,23 @@ ru:
   layouts:
     check_auth_failed: Вам необходимо войти в систему или зарегистрироваться для выполнения этого действия
     check_admin_failed: Эта секция доступна только для администраторов
+    shared:
+      nav:
+        main_name: Доска объявлений
+        root: Главная
+        login: Войти
+        sign_out: Выйти
+        add_bulletin: Добавить объявление
+        admin: Админка
     application:
-      main_name: Доска объявлений
-      root: Главная
-      login: Войти
-      sign_out: Выйти
-      add_bulletin: Добавить объявление
+      hexlet_title: Хекслет
+    web:
+      admin:
+        application:
+          root: Объявления на модерации
+          all_bulletins: Все объявления
+          all_categories: Все категории
+          hexlet_title: Хекслет
 
   web:
     bulletins:
@@ -25,8 +36,23 @@ ru:
         failure: Не получилось создать
 
     admin:
+      home:
+        index:
+          title: Объявления на модерации
+          name: Заголовок
+          created_at: Создано
+          actions: Действия
+      bulletins:
+        index:
+          title: Объявления
+          name: Заголовок
+          created_at: Создано
+          actions: Действия
+          show: Показать
+
       categories:
         index:
+          title: Категории
           actions: Действия
           add_category: Добавить категорию
           categories: Категории
