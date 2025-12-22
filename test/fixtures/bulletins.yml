@@ -5,15 +5,32 @@ bulletin_one:
   description: "Мощный игровой ноутбук в отличном состоянии"
   category: electronics
   user: one
+  state: published
 
 bulletin_two:
   title: "Классическая литература"
   description: "Собрание сочинений русских классиков"
   category: books
   user: one
+  state: published
 
 bulletin_three:
   title: "Диван угловой"
   description: "Комфортный диван с механизмом трансформации"
   category: furniture
   user: two
+  state: published
+
+bulletin_draft:
+  title: "Новый ноутбук # 2 "
+  description: "Мощный игровой ноутбук в отличном состоянии # 2"
+  category: electronics
+  user: one
+  state: draft
+
+bulletin_under_moderation:
+  title: "Новый ноутбук # 3 "
+  description: "Мощный игровой ноутбук в отличном состоянии # 3"
+  category: electronics
+  user: one
+  state: under_moderation

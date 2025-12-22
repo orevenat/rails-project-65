@@ -2,6 +2,6 @@
 
 class Web::Admin::HomeController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.all
+    @bulletins = Bulletin.under_moderation.order(id: :desc)
   end
 end

@@ -1,6 +1,8 @@
 - content_for :title do
   = t('.title')
 
+= link_to t('.new_bulletin'), new_bulletin_path
+
 .row.mt-2
   table.table.table-borderless
     thead
@@ -13,8 +15,10 @@
       - @bulletins.each do |bulletin|
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
+          td = bulletin.aasm.human_state
           td = distance_of_time_in_words_to_now  bulletin.created_at
           td
             = link_to t('.show'), bulletin_path(bulletin), class: 'me-1'
-            - if bulletin.may_archive?
-              = link_to t('.archive'), archive_admin_bulletin_path(bulletin), class: 'text-danger', data: { turbo_method: :patch, confirm: t('.confirm_archive') }
+            = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-1', rel: 'nofollow'
+            = link_to t('.to_moderate'), to_moderate_bulletin_path(bulletin), class: 'me-1', rel: 'nofollow', data: { turbo_method: :patch }
+            = link_to t('.archive'), archive_bulletin_path(bulletin), class: 'text-danger', rel: 'nofollow', data: { turbo_method: :patch }

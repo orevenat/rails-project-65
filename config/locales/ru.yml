@@ -42,6 +42,10 @@ ru:
           name: Заголовок
           created_at: Создано
           actions: Действия
+          publish: Опубликовать
+          reject: Отклонить
+          archive: Архивировать
+          state: Состояние
       bulletins:
         index:
           title: Объявления

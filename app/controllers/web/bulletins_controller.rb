@@ -4,7 +4,7 @@ class Web::BulletinsController < Web::ApplicationController
   before_action :check_auth!, except: %i[index show]
 
   def index
-    @bulletins = Bulletin.all
+    @bulletins = Bulletin.published
   end
 
   def show
@@ -20,9 +20,49 @@ class Web::BulletinsController < Web::ApplicationController
     @bulletin = current_user.bulletins.build(permitted_params)
 
     if @bulletin.save
-      redirect_to root_path, notice: I18n.t(".success")
+      redirect_to profile_path, notice: I18n.t(".success")
     else
-      render :new, status: :unprocessable_content, alert: I18n.t(".failure")
+      render :new, status: :unprocessable_entity, alert: I18n.t(".failure")
+    end
+  end
+
+  def edit
+    @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
+  end
+
+  def update
+    @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
+
+    if @bulletin.update(permitted_params)
+      redirect_to profile_path, notice: I18n.t(".success")
+    else
+      render :edit, status: :unprocessable_entity, alert: I18n.t(".failure")
+    end
+  end
+
+  def to_moderate
+    @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
+
+    if @bulletin.may_to_moderate?
+      @bulletin.to_moderate!
+      redirect_to profile_path, notice: t(".success")
+    else
+      redirect_to profile_path, alert: t(".failure")
+    end
+  end
+
+  def archive
+    @bulletin = Bulletin.find(params[:id])
+    authorize @bulletin
+
+    if @bulletin.may_archive?
+      @bulletin.archive!
+      redirect_to profile_path, notice: t(".success")
+    else
+      redirect_to profile_path, alert: t(".failure")
     end
   end
 

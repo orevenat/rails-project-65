@@ -9,3 +9,8 @@ ru:
         description: Описание
         category: Категория
         image: Фотография
+        state/draft: Черновик
+        state/under_moderation: На модерации
+        state/rejected: Возвращено
+        state/published: Опубликовано
+        state/archived: В архиве
