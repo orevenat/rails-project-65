@@ -43,6 +43,7 @@ gem "image_processing", "~> 1.2"
 gem "simple_form"
 gem "slim-rails"
 gem 'rails-i18n'
+gem 'pundit'
 gem "omniauth-github"
 gem "omniauth-rails_csrf_protection"
 

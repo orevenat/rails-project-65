@@ -7,3 +7,8 @@ one:
 two:
   name: Vasya
   email: test2@mail.ru
+
+admin:
+  name: Ruslan
+  email: agrry@yandex.ru
+  admin: true

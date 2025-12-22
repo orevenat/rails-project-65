@@ -2,4 +2,5 @@
 
 class Web::ApplicationController < ApplicationController
   include Auth
+  include Pundit::Authorization
 end

@@ -6,6 +6,7 @@ ru:
         create: Создать объявление
   layouts:
     check_auth_failed: Вам необходимо войти в систему или зарегистрироваться для выполнения этого действия
+    check_admin_failed: Эта секция доступна только для администраторов
     application:
       main_name: Доска объявлений
       root: Главная
@@ -22,3 +23,26 @@ ru:
       create:
         success: Объявление было создано
         failure: Не получилось создать
+
+    admin:
+      categories:
+        index:
+          actions: Действия
+          add_category: Добавить категорию
+          categories: Категории
+          destroy: Удалить
+          confirm_destroy: Подтвердить удаление
+          edit: Редактировать
+          id: Id
+          name: Название
+        edit:
+          title: Редактировать категорию
+        new:
+          new_category: Новая категория
+        create:
+          success: Категория была успешно создана
+        update:
+          success: Категория была успешно изменена
+        destroy:
+          success: Категория была успешно удалена
+          failure: Не удалось удалить категорию, так как она содержит объявления
