@@ -19,19 +19,19 @@ module Web
       @bulletin = Bulletin.new
     end
 
+    def edit
+      @bulletin = Bulletin.find(params[:id])
+      authorize @bulletin
+    end
+
     def create
       @bulletin = current_user.bulletins.build(permitted_params)
 
       if @bulletin.save
         redirect_to profile_path, notice: t('.success')
       else
-        render :new, status: :unprocessable_entity, alert: t('.failure')
+        render :new, status: :unprocessable_content, alert: t('.failure')
       end
-    end
-
-    def edit
-      @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
     end
 
     def update
@@ -41,7 +41,7 @@ module Web
       if @bulletin.update(permitted_params)
         redirect_to profile_path, notice: t('.success')
       else
-        render :edit, status: :unprocessable_entity, alert: t('.failure')
+        render :edit, status: :unprocessable_content, alert: t('.failure')
       end
     end
 

@@ -21,7 +21,7 @@ module Web
         if @category.save
           redirect_to admin_categories_path, notice: t('.success')
         else
-          render :new, status: :unprocessable_entity
+          render :new, status: :unprocessable_content
         end
       end
 
@@ -31,7 +31,7 @@ module Web
         if @category.update(category_params)
           redirect_to admin_categories_path, notice: t('.success')
         else
-          render :edit, status: :unprocessable_entity
+          render :edit, status: :unprocessable_content
         end
       end
 
