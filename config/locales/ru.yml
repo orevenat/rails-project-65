@@ -4,6 +4,9 @@ ru:
     submit:
       bulletin:
         create: Создать объявление
+  buttons:
+    search: Искать
+    reset: Сброс
   layouts:
     check_auth_failed: Вам необходимо войти в систему или зарегистрироваться для выполнения этого действия
     check_admin_failed: Эта секция доступна только для администраторов
@@ -14,6 +17,7 @@ ru:
         login: Войти
         sign_out: Выйти
         add_bulletin: Добавить объявление
+        my_bulletins: Мои объявления
         admin: Админка
     application:
       hexlet_title: Хекслет
@@ -34,7 +38,35 @@ ru:
       create:
         success: Объявление было создано
         failure: Не получилось создать
-
+      to_moderate:
+        success: Объявление отправлено на модерацию
+        failure: Не удалось отправить объявление на модерацию
+      archive:
+        success: Объявление отправилось в архив
+        failure: Не удалось отправить объявление в архив
+      update:
+        success: Объявление было обновлено
+    profiles:
+      edit:
+        profile: Профиль
+      show:
+        actions: Действия
+        new_bulletin: Добавить объявление
+        archive: В архив
+        confirm_archive: Подтвердить архивацию
+        edit: Редактировать
+        title: Мои объявления
+        name: Название
+        show: Показать
+        state: Состояние
+        to_moderate: На модерацию
+      update:
+        success: Успешно
+        unprocessable_entity: Не удалось обработать
+      create:
+        success: Успешно
+      destroy:
+        success: Успешно
     admin:
       home:
         index:
@@ -53,7 +85,20 @@ ru:
           created_at: Создано
           actions: Действия
           show: Показать
-
+          archive: Архивировать
+          bulletins: Объявления
+          confirm_archive: Подтвердить архивацию
+          edit: Редактировать
+          state: Состояние
+        publish:
+          error: Не удалось опубликовать
+          success: Объявление было успешно опубликовано
+        reject:
+          error: Не удалось вернуть
+          success: Объявление было успешно возвращено
+        archive:
+          error: Не удалось заархивировать
+          success: Объявление было успешно заархивировано
       categories:
         index:
           title: Категории
@@ -76,3 +121,10 @@ ru:
         destroy:
           success: Категория была успешно удалена
           failure: Не удалось удалить категорию, так как она содержит объявления
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"

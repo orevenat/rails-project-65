@@ -4,7 +4,9 @@ class Web::BulletinsController < Web::ApplicationController
   before_action :check_auth!, except: %i[index show]
 
   def index
-    @bulletins = Bulletin.published
+    @q = Bulletin.ransack(params[:q])
+
+    @bulletins = @q.result.published.page(params[:page])
   end
 
   def show
@@ -20,9 +22,9 @@ class Web::BulletinsController < Web::ApplicationController
     @bulletin = current_user.bulletins.build(permitted_params)
 
     if @bulletin.save
-      redirect_to profile_path, notice: I18n.t(".success")
+      redirect_to profile_path, notice: t(".success")
     else
-      render :new, status: :unprocessable_entity, alert: I18n.t(".failure")
+      render :new, status: :unprocessable_entity, alert: t(".failure")
     end
   end
 
@@ -36,9 +38,9 @@ class Web::BulletinsController < Web::ApplicationController
     authorize @bulletin
 
     if @bulletin.update(permitted_params)
-      redirect_to profile_path, notice: I18n.t(".success")
+      redirect_to profile_path, notice: t(".success")
     else
-      render :edit, status: :unprocessable_entity, alert: I18n.t(".failure")
+      render :edit, status: :unprocessable_entity, alert: t(".failure")
     end
   end
 

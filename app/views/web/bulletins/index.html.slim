@@ -1,6 +1,8 @@
 - content_for :title do
   = t('.title')
 
+= render 'search_form2', q: @q, url: root_path
+
 .row.mt-2
   - @bulletins.each do |bulletin|
     .col-3.pt-2
@@ -15,3 +17,5 @@
           = link_to bulletin_path(bulletin) do
             h5.card-title = bulletin.title
           h6.card-subtitle.mb-2.text-muted = distance_of_time_in_words_to_now bulletin.created_at
+
+  = paginate @bulletins, theme: 'bootstrap-5'

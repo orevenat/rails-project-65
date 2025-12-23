@@ -4,7 +4,11 @@ class Web::ProfilesController < Web::ApplicationController
   before_action :check_auth!
 
   def show
-    @bulletins = Bulletin.published
-                         .where(user: current_user)
+    @q = Bulletin.ransack(params[:q])
+
+    @bulletins = @q.result
+                   .where(user: current_user)
+                   .order(updated_at: :desc)
+                   .page(params[:page])
   end
 end

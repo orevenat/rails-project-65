@@ -9,6 +9,9 @@
 
           - if signed_in?
             li.nav-item.me-2
+              = link_to profile_path, class: 'nav-link text-dark' do
+                = t('.my_bulletins')
+            li.nav-item.me-2
               = link_to new_bulletin_path, class: 'nav-link text-dark' do
                 = t('.add_bulletin')
     ul.nav.nav-pills

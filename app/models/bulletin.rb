@@ -29,4 +29,8 @@ class Bulletin < ApplicationRecord
       transitions from: :under_moderation, to: :published
     end
   end
+
+  def self.ransackable_attributes(_ = nil)
+    %w[category_id created_at description id state title updated_at user_id]
+  end
 end

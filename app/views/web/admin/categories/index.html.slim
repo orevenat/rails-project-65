@@ -18,3 +18,5 @@
           td
             = link_to t('.edit'), edit_admin_category_path(category), class: 'me-1'
             = link_to t('.destroy'), admin_category_path(category), class: 'text-danger me-1', method: :delete, data: { confirm: t('.confirm_destroy') }
+
+  = paginate @categories, theme: 'bootstrap-5'

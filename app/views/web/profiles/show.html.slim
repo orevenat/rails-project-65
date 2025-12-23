@@ -3,6 +3,8 @@
 
 = link_to t('.new_bulletin'), new_bulletin_path
 
+= render 'web/bulletins/search_form', q: @q, url: profile_path
+
 .row.mt-2
   table.table.table-borderless
     thead
@@ -22,3 +24,5 @@
             = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-1', rel: 'nofollow'
             = link_to t('.to_moderate'), to_moderate_bulletin_path(bulletin), class: 'me-1', rel: 'nofollow', data: { turbo_method: :patch }
             = link_to t('.archive'), archive_bulletin_path(bulletin), class: 'text-danger', rel: 'nofollow', data: { turbo_method: :patch }
+
+  = paginate @bulletins, theme: 'bootstrap-5'
