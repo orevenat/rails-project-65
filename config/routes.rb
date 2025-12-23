@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   scope module: :web do
-    get "auth/:provider/callback", to: "auth#callback", as: :callback_auth
-    post "auth/:provider", to: "auth#request", as: :auth_request
-    delete "auth/logout"
+    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+    post 'auth/:provider', to: 'auth#request', as: :auth_request
+    delete 'auth/logout'
 
-    root "bulletins#index"
+    root 'bulletins#index'
 
     resources :bulletins do
       member do
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resource :profile, only: %(show)
 
     namespace :admin do
-      root "home#index"
+      root 'home#index'
 
       resources :categories, except: %i[show]
       resources :bulletins, only: %i[index] do

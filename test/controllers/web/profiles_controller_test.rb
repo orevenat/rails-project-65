@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
-class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
-  test "#show" do
-    user = users(:one)
-    sign_in(user)
+module Web
+  class ProfilesControllerTest < ActionDispatch::IntegrationTest
+    test '#show' do
+      user = users(:one)
+      sign_in(user)
 
-    get profile_path
-    assert_response :success
+      get profile_path
+      assert_response :success
+    end
   end
 end

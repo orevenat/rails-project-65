@@ -1,104 +1,108 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
-class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
-  test "#index" do
-    @user = users :admin
-    sign_in @user
+module Web
+  module Admin
+    class CategoriesControllerTest < ActionDispatch::IntegrationTest
+      test '#index' do
+        @user = users :admin
+        sign_in @user
 
-    get admin_categories_path
-    assert_response :success
-  end
+        get admin_categories_path
+        assert_response :success
+      end
 
-  test "#index unathorize" do
-    @user = users :one
-    sign_in @user
+      test '#index unathorize' do
+        @user = users :one
+        sign_in @user
 
-    get admin_categories_path
-    assert_response :redirect
-  end
+        get admin_categories_path
+        assert_response :redirect
+      end
 
-  test "#new" do
-    @user = users :admin
-    sign_in @user
+      test '#new' do
+        @user = users :admin
+        sign_in @user
 
-    get new_admin_category_path
-    assert_response :success
-  end
+        get new_admin_category_path
+        assert_response :success
+      end
 
-  test "#create" do
-    @user = users :admin
-    sign_in @user
+      test '#create' do
+        @user = users :admin
+        sign_in @user
 
-    attrs = {
-      category: {
-        name: "my new category"
-      }
-    }
+        attrs = {
+          category: {
+            name: 'my new category'
+          }
+        }
 
-    post admin_categories_path, params: attrs
-    assert_response :redirect
-    assert { Category.exists?(name: attrs[:category][:name]) }
-  end
+        post admin_categories_path, params: attrs
+        assert_response :redirect
+        assert { Category.exists?(name: attrs[:category][:name]) }
+      end
 
-  test "#edit" do
-    @user = users :admin
-    sign_in @user
+      test '#edit' do
+        @user = users :admin
+        sign_in @user
 
-    category = categories(:electronics)
+        category = categories(:electronics)
 
-    get edit_admin_category_path(category)
-    assert_response :success
-  end
+        get edit_admin_category_path(category)
+        assert_response :success
+      end
 
-  test "#update" do
-    @user = users :admin
-    sign_in @user
+      test '#update' do
+        @user = users :admin
+        sign_in @user
 
-    category = categories(:electronics)
-    name = "my new category"
+        category = categories(:electronics)
+        name = 'my new category'
 
-    attrs = {
-      category: {
-        name: name
-      }
-    }
+        attrs = {
+          category: {
+            name: name
+          }
+        }
 
-    patch admin_category_url(category), params: attrs
+        patch admin_category_url(category), params: attrs
 
-    assert_response :redirect
+        assert_response :redirect
 
-    category.reload
+        category.reload
 
-    assert_equal name, category.name
-  end
+        assert_equal name, category.name
+      end
 
-  test "#destroy" do
-    @user = users :admin
-    sign_in @user
+      test '#destroy' do
+        @user = users :admin
+        sign_in @user
 
-    category = categories(:cars)
+        category = categories(:cars)
 
-    delete admin_category_path(category)
-    assert_response :redirect
+        delete admin_category_path(category)
+        assert_response :redirect
 
-    assert_raises(ActiveRecord::RecordNotFound) { category.reload }
-    assert { flash[:notice].present? }
-  end
+        assert_raises(ActiveRecord::RecordNotFound) { category.reload }
+        assert { flash[:notice].present? }
+      end
 
-  test "#destroy when exists bulletins" do
-    @user = users :admin
-    sign_in @user
+      test '#destroy when exists bulletins' do
+        @user = users :admin
+        sign_in @user
 
-    category = categories(:electronics)
+        category = categories(:electronics)
 
-    delete admin_category_path(category)
-    assert_response :redirect
+        delete admin_category_path(category)
+        assert_response :redirect
 
-    category.reload
+        category.reload
 
-    assert { category }
-    assert { flash[:alert].present? }
+        assert { category }
+        assert { flash[:alert].present? }
+      end
+    end
   end
 end

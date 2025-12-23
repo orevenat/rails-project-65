@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
-class Web::Admin::ApplicationController < Web::ApplicationController
-  before_action :check_admin!
+module Web
+  module Admin
+    class ApplicationController < Web::ApplicationController
+      before_action :check_admin!
+    end
+  end
 end

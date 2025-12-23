@@ -22,12 +22,12 @@ module Auth
   def check_auth!
     return if current_user
 
-    redirect_back fallback_location: root_path, alert: t("layouts.check_auth_failed")
+    redirect_back fallback_location: root_path, alert: t('layouts.check_auth_failed')
   end
 
   def check_admin!
     return if current_user.admin?
 
-    redirect_back fallback_location: root_path, alert: t("layouts.check_admin_failed")
+    redirect_back fallback_location: root_path, alert: t('layouts.check_admin_failed')
   end
 end
