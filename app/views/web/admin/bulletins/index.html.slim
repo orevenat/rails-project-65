@@ -16,7 +16,7 @@
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
           td = bulletin.aasm.human_state
-          td = distance_of_time_in_words_to_now  bulletin.created_at
+          td = distance_of_time_in_words_to_now bulletin.created_at
           td
             = link_to t('.show'), bulletin_path(bulletin), class: 'me-1'
             - if bulletin.may_archive?

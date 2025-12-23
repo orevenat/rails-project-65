@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      = content_for(:title) || "Rails Project 65"
+      = content_for(:title) || 'Rails Project 65'
     meta name="viewport" content="width=device-width,initial-scale=1"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta name="application-name" content="Rails Project 65"
@@ -20,8 +20,8 @@ html
     link rel="apple-touch-icon" href="/icon.png"
 
     / Includes all stylesheet files in app/assets/stylesheets
-    = stylesheet_link_tag :app, "data-turbo-track": "reload"
-    = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
+    = stylesheet_link_tag :app, 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
 
   body.d-flex.flex-column.h-100
     = render 'layouts/shared/nav'

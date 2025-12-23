@@ -14,7 +14,7 @@
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
           td = bulletin.aasm.human_state
-          td = distance_of_time_in_words_to_now  bulletin.created_at
+          td = distance_of_time_in_words_to_now bulletin.created_at
           td
             = link_to t('.publish'), publish_admin_bulletin_path(bulletin), class: 'me-1', rel: 'nofollow', data: { turbo_method: :patch }
             = link_to t('.reject'), reject_admin_bulletin_path(bulletin), class: 'me-1', rel: 'nofollow', data: { turbo_method: :patch }
