@@ -8,7 +8,6 @@
 #   Enabled: false
 
 require:
-  - rubocop-performance
   - rubocop-rails
 
 Rails/UniqueValidationWithoutIndex:
