@@ -31,7 +31,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
 
     attrs = {
       category: {
-        name: 'my new category'
+        name: "my new category"
       }
     }
 
@@ -55,7 +55,7 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     category = categories(:electronics)
-    name = 'my new category'
+    name = "my new category"
 
     attrs = {
       category: {
